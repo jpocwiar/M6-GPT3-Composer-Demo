@@ -2,68 +2,10 @@
 
 This work introduces the Genetic GPT Song Composer system, capable of generating complete, multi-minute musical compositions with complex structures in the MIDI domain from input descriptions in natural language. The system utilizes the GPT language model in the form of ChatGPT API to map natural language prompts to composition parameters in JSON format. The defined structure includes time signature, scales, chord progressions, and valence-arousal values, from which accompaniment, melody, bass, motif, and percussion tracks are created. The generation of melodic elements is achieved through a genetic algorithm. The algorithm incorporates mutations with musical significance and a fitness function based on normal distribution and predefined musical feature values. The values adaptively evolve, influenced by emotional parameters and distinct playing styles. System for generating percussion in any time signature utilises probabilistic methods, including Markov chains. The test results showed that although the system does not match the most advanced machine learning models in terms of fidelity to reproducing individual genres and sounds, its advanced knowledge of music theory and styles, along with the absence of limitations imposed by dominant musical structures in extensive datasets, can make the system a valuable tool for musicians seeking inspiration.
 
-#### Example generations
+## Example generations
 To present the functionality of the system, I generated couple of songs using descriptions from [Meta's MusicGen](https://audiocraft.metademolab.com/musicgen.html) and [Google's MusicLM](https://google-research.github.io/seanet/musiclm/examples/) sites. Presented wav files are synthesized from MIDI, so they have quite basic instrument sounding. They can however be used to synthesize with finer samples.
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Structure of the Song "Arcade Rush"</title>
-</head>
-<body>
-    <table border="1">
-        <caption>Structure of the Song "Arcade Rush" / Struktura utworu "Arcade Rush"</caption>
-        <thead>
-            <tr>
-                <th>Element</th>
-                <th>Details / Szczegóły</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Song Name / Nazwa utworu</td>
-                <td>Arcade Rush</td>
-            </tr>
-            <tr>
-                <td>Tempo / Tempo</td>
-                <td>160 BPM (beats per minute) / 160 uderzeń na minutę</td>
-            </tr>
-            <tr>
-                <td>Scales Used / Użyte skale</td>
-                <td>E Mixolydian, E Dorian, E Minor / E Miksolidyjska, E Dorycka, E Molowa</td>
-            </tr>
-            <tr>
-                <td>Instruments Used / Użyte instrumenty</td>
-                <td>Guitar, harp, accent percussion, synthesizer, strings, standard drums / Gitara, harfa, perkusja akcentowa, syntezator, smyczki, perkusja standardowa</td>
-            </tr>
-            <tr>
-                <td>Structure / Struktura</td>
-                <td>Intro, main theme, break, bridge, main theme, outro / Intro, główny motyw, przełamanie, mostek, główny motyw, outro</td>
-            </tr>
-            <tr>
-                <td>Emotions / Emocje</td>
-                <td>(Link to emotions graph / Link do wykresu emocji)</td>
-            </tr>
-            <tr>
-                <td>Link to the song / Link do utworu</td>
-                <td><a href="https://drive.google.com/file/d/1wDoxxGhYYEFYoxxLyuBSJiZffkRHGxPj/view?usp=drive_link">Arcade Rush in WAV format / Arcade Rush w formacie wav</a></td>
-            </tr>
-            <tr>
-                <td>Listen here / Posłuchaj tutaj</td>
-                <td>
-                    <audio controls>
-                        <source src="https://drive.google.com/uc?export=view&id=1wDoxxGhYYEFYoxxLyuBSJiZffkRHGxPj" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</body>
-</html>
-
+Mind, that system generates full songs with various sections, for example verse, chorus, bridge, so things like overall mood / scales change as the song progresses.
 
 <table>
 <tr>
@@ -224,6 +166,200 @@ Audio can not be played here.
 
 </td>
 </tr>
+
+</table>
+
+### Modifying compositions
+The system is also capable of modifying previously generated compositions to the user's needs. Table below presents prompts that modify the composition, compositions themselves, as well as time signature, tempo and structure.
+
+<table>
+<tr>
+<td>
+
+Prompt: Write me a slow, dark song with complex chords.
+
+</td>
+<td>
+
+<audio controls>
+  <source src="assets/audio/iterative/1/Shadows-Linger-20231211-113318.wav" type="audio/wav">
+Audio can not be played here.
+</audio>
+
+</td>
+<td>
+
+4/4, 60 BPM.
+
+</td>
+<td>
+
+Intro, verse, chorus, verse, chorus, bridge, chorus.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+Prompt: Increase the tempo of the song and add a more progressive time signature.
+
+</td>
+<td>
+
+<audio controls>
+  <source src="assets/audio/iterative/2/Whispers-of-the-Eclipse-20231211.wav" type="audio/wav">
+Audio can not be played here.
+</audio>
+
+</td>
+<td>
+
+7/8, 90 BPM.
+
+</td>
+<td>
+
+Intro, verse, chorus, verse, chorus, bridge, chorus.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+Prompt: Keep the instruments from the previous version. Let's use an even more complex
+11/8 meter.
+
+</td>
+<td>
+
+<audio controls>
+  <source src="assets/audio/iterative/3/Veil-of-Twilight-20231211-102124.wav" type="audio/wav">
+Audio can not be played here.
+</audio>
+
+</td>
+<td>
+
+11/8, 90 BPM.
+
+</td>
+<td>
+
+Intro, verse, chorus, verse, chorus, bridge, chorus.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+Prompt: Add an ambient section to the piece, with one chord playing through the
+entire section with a mesmerizing motif.
+
+</td>
+<td>
+
+<audio controls>
+  <source src="assets/audio/iterative/4/Veil-of-Twilight-20231211-001750.wav" type="audio/wav">
+Audio can not be played here.
+</audio>
+
+</td>
+<td>
+
+11/8, 90 BPM.
+
+</td>
+<td>
+
+Intro, verse, chorus, verse, chorus, bridge, ambient, chorus.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+Prompt: Alright, but let's make the ambient section shorter. After the ambient section, I would like a guitar solo section that would sound like a collaboration between Pink Floyd and Peter Gabriel.
+
+</td>
+<td>
+
+<audio controls>
+  <source src="assets/audio/iterative/5/Veil-of-Twilight-20231211-003343.wav" type="audio/wav">
+Audio can not be played here.
+</audio>
+
+</td>
+<td>
+
+11/8, 90 BPM.
+
+</td>
+<td>
+
+Intro, verse, chorus, verse, chorus, bridge, ambient, guitar solo, chorus.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+Prompt: Add a Bach-inspired passage before the solo begins. Let's also use
+a different instrumentation for the solo to better fit in with the rest. You can also change the guitar, because it doesn't
+fit very well. Let's change the time signature to 13/8. Remember that the duration of chords is given in
+bars.
+
+</td>
+<td>
+
+<audio controls>
+  <source src="assets/audio/iterative/6/Veil-of-Twilight-20231210-234356.wav" type="audio/wav">
+Audio can not be played here.
+</audio>
+
+</td>
+<td>
+
+13/8, 90 BPM.
+
+</td>
+<td>
+
+Intro, verse, chorus, verse, chorus, bridge, ambient, guitar solo, chorus.
+
+</td>
+</tr>
+<tr>
+<td>
+
+Prompt: Let's change the intro to one inspired by Chopin's Funeral March. Let's also change the
+the chorus to a more powerful one, keeping its dark atmosphere.
+
+</td>
+<td>
+
+<audio controls>
+  <source src="assets/audio/iterative/7/Veil-of-Twilight-20231210-232103.wav" type="audio/wav">
+Audio can not be played here.
+</audio>
+
+</td>
+<td>
+
+13/8, 90 BPM.
+
+</td>
+<td>
+
+Intro, verse, chorus, verse, chorus, bridge, chorus.
+
+</td>
+</tr>
+
 
 </table>
 

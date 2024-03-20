@@ -355,7 +355,7 @@ Audio can not be played here.
 </td>
 <td>
 
-Intro, verse, chorus, verse, chorus, bridge, chorus.
+Intro, verse, chorus, verse, chorus, bridge, ambient, guitar solo, chorus.
 
 </td>
 </tr>

@@ -262,7 +262,7 @@ entire section with a mesmerizing motif.
 <td>
 
 <audio controls>
-  <source src="assets/audio/iterative/4/Veil-of-Twilight-20231211-001750.wav" type="audio/wav">
+  <source src="assets/audio/iterative/4/Veil-of-Twilight-20231211-001750.mp3" type="audio/mp3">
 Audio can not be played here.
 </audio>
 
@@ -288,7 +288,7 @@ Prompt: Alright, but let's make the ambient section shorter. After the ambient s
 <td>
 
 <audio controls>
-  <source src="assets/audio/iterative/5/Veil-of-Twilight-20231211-003343.wav" type="audio/wav">
+  <source src="assets/audio/iterative/5/Veil-of-Twilight-20231211-003343.mp3" type="audio/mp3">
 Audio can not be played here.
 </audio>
 

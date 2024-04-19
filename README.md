@@ -8,6 +8,39 @@ To present the functionality of the system, I generated couple of songs using de
 Mind, that system generates full songs with various sections, for example verse, chorus, bridge, so things like overall mood / scales change as the song progresses.
 
 <table>
+
+<tr>
+<td>
+
+Prompt: The main soundtrack of an arcade game. It is fast-paced and upbeat, with a catchy electric guitar riff. The music is repetitive and easy to remember, but with unexpected sounds, like cymbal crashes or drum rolls.
+
+</td>
+<td>
+
+<audio controls>
+  <source src="assets/audio/Arcade-Rush-20231208-135906.wav" type="audio/wav">
+Audio can not be played here.
+</audio>
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+Prompt: We can hear a choir, singing a Gregorian chant, and a drum machine, creating a rhythmic beat. The slow, stately sounds of strings provide a calming backdrop for the fast, complex sounds of futuristic electronic music.
+
+</td>
+<td>
+
+<audio controls>
+  <source src="assets/audio/Ancient-Future-20231208-121749.wav" type="audio/wav">
+Audio can not be played here.
+</audio>
+
+</td>
+</tr>
+
 <tr>
 <td>
 
@@ -129,38 +162,6 @@ Prompt: Violins and synths that inspire awe at the finiteness of life and the un
 
 <audio controls>
   <source src="assets/audio/Celestial-Reverie-20231208-11391.wav" type="audio/wav">
-Audio can not be played here.
-</audio>
-
-</td>
-</tr>
-
-<tr>
-<td>
-
-Prompt: The main soundtrack of an arcade game. It is fast-paced and upbeat, with a catchy electric guitar riff. The music is repetitive and easy to remember, but with unexpected sounds, like cymbal crashes or drum rolls.
-
-</td>
-<td>
-
-<audio controls>
-  <source src="assets/audio/Arcade-Rush-20231208-135906.wav" type="audio/wav">
-Audio can not be played here.
-</audio>
-
-</td>
-</tr>
-
-<tr>
-<td>
-
-Prompt: We can hear a choir, singing a Gregorian chant, and a drum machine, creating a rhythmic beat. The slow, stately sounds of strings provide a calming backdrop for the fast, complex sounds of futuristic electronic music.
-
-</td>
-<td>
-
-<audio controls>
-  <source src="assets/audio/Ancient-Future-20231208-121749.wav" type="audio/wav">
 Audio can not be played here.
 </audio>
 

@@ -1,9 +1,0 @@
-@misc{poćwiardowski2024textmtext6textgpttext3generatingmultitrackmodifiable,
-      title={$\text{M}^\text{6}(\text{GPT})^\text{3}$: Generating Multitrack Modifiable Multi-Minute MIDI Music from Text using Genetic algorithms, Probabilistic methods and GPT Models in any Progression and Time signature}, 
-      author={Jakub Poćwiardowski and Mateusz Modrzejewski and Marek S. Tatara},
-      year={2024},
-      eprint={2409.12638},
-      archivePrefix={arXiv},
-      primaryClass={cs.SD},
-      url={https://arxiv.org/abs/2409.12638}, 
-}

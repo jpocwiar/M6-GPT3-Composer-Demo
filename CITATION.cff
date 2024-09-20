@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Poćwiardowski"
+  given-names: "Jakub"
+- family-names: "Modrzejewski"
+  given-names: "Mateusz"
+- family-names: "Tatara"
+  given-names: "Marek S."
+title: "M^6-(GPT)^3: Generating Multitrack Modifiable Multi-Minute MIDI Music from Text using Genetic algorithms, Probabilistic methods and GPT Models in any Progression and Time signature"
+date-released: 2024-09-19
+url: "https://github.com/jpocwiar/M6-GPT3-Composer-Demo"
+
+bibtex: |
+      @misc{poćwiardowski2024textmtext6textgpttext3generatingmultitrackmodifiable,
+            title={$\text{M}^\text{6}(\text{GPT})^\text{3}$: Generating Multitrack Modifiable Multi-Minute MIDI Music from Text using Genetic algorithms, Probabilistic methods and GPT Models in any Progression and Time signature}, 
+            author={Jakub Poćwiardowski and Mateusz Modrzejewski and Marek S. Tatara},
+            year={2024},
+            eprint={2409.12638},
+            archivePrefix={arXiv},
+            primaryClass={cs.SD},
+            url={https://arxiv.org/abs/2409.12638}, 
+      }

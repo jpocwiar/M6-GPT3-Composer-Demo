@@ -607,4 +607,21 @@ Then the JSON structure is provided:
   "com": "<your very short, max 3 sentence comment about your choices in the song and how they relate to user's input>"
 }
 ```
-Technologies used: Python, NumPy, Pandas, openai, matplotlib, MidiUtil, Mingus, PyGame
+
+### Citation
+If you use this repository, please cite it using the following BibTeX entry:
+
+```bibtex
+@misc{poćwiardowski2024textmtext6textgpttext3generatingmultitrackmodifiable,
+      title={$\text{M}^\text{6}(\text{GPT})^\text{3}$: Generating Multitrack Modifiable Multi-Minute MIDI Music from Text using Genetic algorithms, Probabilistic methods and GPT Models in any Progression and Time signature}, 
+      author={Jakub Poćwiardowski and Mateusz Modrzejewski and Marek S. Tatara},
+      year={2024},
+      eprint={2409.12638},
+      archivePrefix={arXiv},
+      primaryClass={cs.SD},
+      url={https://arxiv.org/abs/2409.12638}, 
+}
+```
+
+
+Technologies used: Python, NumPy, Pandas, openai, MidiUtil, Mingus

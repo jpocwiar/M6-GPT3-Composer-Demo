@@ -1,6 +1,6 @@
-# M<sup>6</sup>-(GPT)<sup>3</sup>: Generating Multitrack Modifiable Multi-Minute MIDI Music from Text using Genetic algorithms, Probabilistic methods and GPT Models in any Progression and Time signature 
+# M6(GPT)3: Generating Multitrack Modifiable Multi-Minute MIDI Music from Text using Genetic algorithms, Probabilistic methods and GPT Models in any Progression and Time signature 
 
-This work introduces the M<sup>6</sup>-(GPT)<sup>3</sup> Composer system, capable of generating complete, multi-minute musical compositions with complex structures in any time signature, in the MIDI domain from input descriptions in natural language. The system utilizes an autoregressive transformer language model to map natural language prompts to composition parameters in JSON format. The defined structure includes time signature, scales, chord progressions, and valence-arousal values, from which accompaniment, melody, bass, motif, and percussion tracks are created. We propose a genetic algorithm for the generation of melodic elements. The algorithm incorporates mutations with musical significance and a fitness function based on normal distribution and predefined musical feature values. The values adaptively evolve, influenced by emotional parameters and distinct playing styles. The system for generating percussion in any time signature utilises probabilistic methods, including Markov chains. Through both human and objective evaluations, we demonstrate that our music generation approach outperforms baselines on specific, musically meaningful metrics, offering a valuable alternative to purely neural network-based systems.
+This work introduces the M6(GPT)3 composer system, capable of generating complete, multi-minute musical compositions with complex structures in any time signature, in the MIDI domain from input descriptions in natural language. The system utilizes an autoregressive transformer language model to map natural language prompts to composition parameters in JSON format. The defined structure includes time signature, scales, chord progressions, and valence-arousal values, from which accompaniment, melody, bass, motif, and percussion tracks are created. We propose a genetic algorithm for the generation of melodic elements. The algorithm incorporates mutations with musical significance and a fitness function based on normal distribution and predefined musical feature values. The values adaptively evolve, influenced by emotional parameters and distinct playing styles. The system for generating percussion in any time signature utilises probabilistic methods, including Markov chains. Through both human and objective evaluations, we demonstrate that our music generation approach outperforms baselines on specific, musically meaningful metrics, offering a viable alternative to purely neural network-based systems.
 
 ## Example generations
 To present the functionality of the system, I generated couple of songs using descriptions from [Meta's MusicGen](https://audiocraft.metademolab.com/musicgen.html) and [Google's MusicLM](https://google-research.github.io/seanet/musiclm/examples/) sites. Presented wav files are automatically synthesized from MIDI using General MIDI soundfont, so they have quite basic instrument sounding. They can however be used to synthesize with finer samples.
@@ -450,110 +450,24 @@ Intro, verse, chorus, verse, chorus, bridge, ambient, guitar solo, chorus.
 
 </table>
 
+### Real life usages
+#### Jakub Poćwiardowski - Na skraju nieświadomości
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4qFC7g5LPgk" frameborder="0" allowfullscreen></iframe>
+
+M6(GPT)3 was used as a template creator for this track, providing MIDI for percussion, chords, bass, and a distinctive violin motif in 7/8 time. The remaining parts, such as guitars, were recorded, added, and produced by me in a DAW.
+#### Jakub Poćwiardowski - Istnienia
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TYkjHCxog0Q" frameborder="0" allowfullscreen></iframe>
+
+Following the previous track, *Istnienia* uses only the motif in 7/8. However, this time the generated MIDI triggers multiple layers of samples, including clock sounds and yangqin. The time signature later shifts to 6/8 with a tempo shift.
+
+
 ### System prompt
 
 To generate song structure and parameters a LLM is used. We chose GPT family because of its promising music theory knowledge and ability to use it via openai API, making it accessible from any computer, contrary to locally hosted LLMs requiring high computing resources. 
 
-To obtain the structure in an appropriate form, the model is provided with precise instructions as a system prompt:
-
-```
-You are a music composing system. User will ask you about the song they want to \
-generate and your task is to respond with output of JSON file and JSON file only.
-1. User Requests: Users specify preferences for a song. The task is to create a music composition in JSON format based on these inputs.
-2. Song Name:
-   - Name: Choose a name for a song
-3. Song Structure:
-   - Define various song sections, such as verse, chorus, bridge, etc.
-   - For each section, select a scale. Describe scales as 'tonic + scale type' (e.g., 'C# Minor'). 
-   - Available scales: Major, Minor, Natural Minor, Harmonic Minor, Ionian, Dorian, Phrygian, Lydian, Mixolydian, Aeolian, Locrian, and Chromatic.
-   - Scales may vary between sections to suit the song's progression.
-   - Choose scales considering the mood they convey for each section.
-   - If user asks for type of a scale that is not available, choose the closest scale from the available ones.
-   - BPM (Beats Per Minute): Set the tempo according to the genre and mood.
-   - tempo should be the same for all sections, unless the song is very sophisticated
-   - Time Signature: Select an appropriate time signature. 
-     - The first number (indicating the number of beats in a measure) should be greater than 2.
-     - The second number (defining the note value that represents one beat) can be either 4 (quarter note) or 8 (eighth note).
-     - Examples include 4/4, 5/4, 7/8, 9/8.
-    - Time signature also usually does not change unless the composition is sophisticated
-4. Chord Progressions:
-   - Define chords in shorthand (e.g., C, D#, Ebm, Bdim, Am7, Fsus2).
-   - Recognized chord abbreviations are as follows:
-        Triads: Use 'm' for minor, 'M' or '' (blank) for major, 'dim' for diminished.
-        Sevenths: Include 'm7' for minor seventh, 'M7' for major seventh, '7' for dominant seventh, 'm7b5' for half-diminished, 'dim7' for diminished seventh, 'm/M7' or 'mM7' for minor/major seventh.
-        Augmented chords: Use 'aug' or '+' for augmented, '7#5' or 'M7+5' for augmented fifth seventh, 'M7+' or 'm7+' for augmented major seventh, '7+' for augmented dominant seventh.
-        Suspended chords: Include 'sus4', 'sus2' for suspended fourth and second, respectively, 'sus47', 'sus', '11', 'sus4b9' or 'susb9' for various suspended combinations.
-        Sixths: Use '6' for sixth, 'm6' for minor sixth, 'M6' for major sixth, '6/7' or '67' for sixth/dominant seventh, '6/9' or '69' for sixth/ninth.
-        Ninths: Include '9' for ninth, 'M9' for major ninth, 'm9' for minor ninth, '7b9', '7#9' for altered ninth.
-        Elevenths: Use '11' for eleventh, '7#11' for altered eleventh, 'm11' for minor eleventh.
-        Thirteenths: Include '13' for thirteenth, 'M13' for major thirteenth, 'm13' for minor thirteenth.
-   - Make sure each chord fits within the chosen scale.
-   - Determine the duration of each chord in measures. Also, set the number of times the chord sequence is repeated, ensuring the entire chord progression spans 8 to 16 measures per section (total length is sum of chord durations times repeats).
-   - Total number of measures per section should be larger (closer to 16) for more uptempo songs and smaller (closer to 8) for slower songs, to maintain similar length.
-   - durations for most chords should be 1 or 2 unless user specifically asks for long chords.
-5. Emotion Mapping:
-   - Assign valence (positive or negative) and arousal (intensity) values to each section to define emotions.
-   - You can use different valence-arousal values for the same sections in different parts of song.
-6. Instrumentation:
-   - Select instruments for different roles (e.g., chords, bass, motif) with specified playing styles.
-   - Limit to a consistent set of up to 6 instrument types across the song and max 4 at a time. 
-   - Instruments for each section should be defined as <instrument> <style> with space in between.
-   - If an instrument is not played in a section, use "None" (e.g., "percussion": "None").
-   - usually not all sections should play, consider the section's arousal when deciding which instruments should play.
-   - usually between 2 and 4 instruments should play at the same time
-   - Use only the following available instrument choices:
-     "chords_base": 
-        Instruments: "piano", "electric_guitar", "acoustic_guitar", "strings", "synth", "organ", "church_organ", "pad", "brass"
-        Styles:
-        - 'sustained': Hold the chord for the whole measure.
-        - 'repeated': Play the chord multiple times in a pattern.
-        - 'arpeggiated': Play single notes of a chord up and down.
-
-     "bass": 
-        Instruments: "picked", "slapped", "piano", "pizzicato_strings", "contrabass", "brass", "synth"
-        Styles:
-        - 'short_riff': One measure, repetitive bass riff.
-        - 'long_riff': Two measure, repetitive bass riff.
-        - 'groove': Playing root notes with occasional variations and fills.
-        - 'repeated_groove': Same as groove, but same pattern repeats every measure.
-
-     "motif": 
-        Instruments: "piano", "guitar", "violin", "synth", "glockenspiel", "marimba", "harp"
-        Styles:
-            - 'long': A one-measure long motif that repeats every measure.
-            - 'start': A half-measure motif played at the start of each measure.
-            - 'end': A half-measure motif played at the end of each measure.
-            - 'repeated': A half-measure motif played twice in each measure.
-            - 'repeated_short': A quarter-measure motif played four times in each measure.
-
-     "percussion": 
-         Instruments: "standard", "ethnic", "bells_and_cymbals"
-         Styles:
-            - 'only_beat': Play only the basic beat.
-            - 'full': Play a full drum pattern with fills.
-            - 'drum_solo': Focus on drum fills and solos.
-         - Note: 'bells_and_cymbals' is a kit of kick and cymbal-like instruments (e.g., triangles, tambourines).
-
-     "melody": 
-        Instruments: "piano", "electric_guitar", "acoustic_guitar", "sax", "flute", "violin", "synth", "trumpet", "choir", "organ"
-        Styles:
-            - 'melody': Play a melodic line with longer notes within a narrow note range.
-            - 'solo': Perform a solo with shorter notes covering the full range of the instrument.
-
-   - Note: Bass plays in low frequencies, motif plays in upper frequencies, chords play in the middle and melody can play in all frequencies, but usually upper-mid.
-   - Chords base should always play. Multiple chord bases can be used, potentially reducing other sections.
-   - Adaptability: If a requested instrument or technique is not available, choose the closest alternative from the available options. 
-7. Composer's Note:
-   - Conclude with a brief comment explaining your creative choices, relating them to the user's input.
-   - Comment be very concise and general and NOT mention specific details from the rest of the JSON.
-   - Comment should be max 3 sentence long.
-   - Comment should be in form of an answer to user's input, as it will be presented to the user.
-8. JSON Format Guidelines:
-   - Follow the provided JSON structure, filling in the necessary details for each element of the song.
-   - Ensure you only use the options from available choices of scales, chords, instruments defined above.    
-```
-
-Then the JSON structure is provided:
+To obtain the structure in an appropriate form, the model is provided with precise instructions as a system prompt, along with the JSON structure presented below:
 
 ```text
 {
@@ -612,8 +526,8 @@ Then the JSON structure is provided:
 If you use this repository, please cite it using the following BibTeX entry:
 
 ```bibtex
-@misc{poćwiardowski2024textmtext6textgpttext3generatingmultitrackmodifiable,
-      title={$\text{M}^\text{6}(\text{GPT})^\text{3}$: Generating Multitrack Modifiable Multi-Minute MIDI Music from Text using Genetic algorithms, Probabilistic methods and GPT Models in any Progression and Time signature}, 
+@misc{pocwiardowski2024m6gpt3,
+      title={M6(GPT)3: Generating Multitrack Modifiable Multi-Minute MIDI Music from Text using Genetic algorithms, Probabilistic methods and GPT Models in any Progression and Time signature}, 
       author={Jakub Poćwiardowski and Mateusz Modrzejewski and Marek S. Tatara},
       year={2024},
       eprint={2409.12638},

@@ -453,6 +453,14 @@ Intro, verse, chorus, verse, chorus, bridge, ambient, guitar solo, chorus.
 ### Real life usages
 #### Jakub Poćwiardowski - Na skraju nieświadomości
 
+M6(GPT)3 output:
+<audio controls>
+  <source src="assets/audio/Synthetic Dreams_20240323_203846.mp3" type="audio/mp3">
+Audio can not be played here.
+</audio>
+
+Final work:
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/4qFC7g5LPgk" frameborder="0" allowfullscreen></iframe>
 
 M6(GPT)3 was used as a template creator for this track, providing MIDI for percussion, chords, bass, and a distinctive violin motif in 7/8 time. The remaining parts, such as guitars, were recorded, added, and produced by me in a DAW.
@@ -461,6 +469,14 @@ M6(GPT)3 was used as a template creator for this track, providing MIDI for percu
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TYkjHCxog0Q" frameborder="0" allowfullscreen></iframe>
 
 Following the previous track, *Istnienia* uses only the motif in 7/8. However, this time the generated MIDI triggers multiple layers of samples, including clock sounds and yangqin. The time signature later shifts to 6/8 with a tempo shift.
+
+#### Jakub Poćwiardowski & Lili - The Run
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/U0jGWyrcGjM?si=aYLsAGKMtfmizU9L&amp;start=149" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+This song involved a minor but very specific use of M6(GPT)3. I needed a backing template for a guitar solo in 7/4 (minute 2:29), and I wanted it to feature an interesting key change. After a long discussion with the model, we came up with a chord progression that I then used to improvise the solo myself.
+
+In the final version, only the drums from the M6(GPT)3-generated MIDI remained, as my friend Lili created an orchestral arrangement based on the chords. Interestingly, due to mismatched drum component mappings, the drum fills ended up triggering different sounds than originally intended. However, I  found the result interesting and decided to keep it.
 
 
 ### System prompt

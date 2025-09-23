@@ -12,12 +12,15 @@ date-released: 2024-09-19
 url: "https://github.com/jpocwiar/M6-GPT3-Composer-Demo"
 
 bibtex: |
-      @misc{pocwiardowski2024m6gpt3,
-            title={M6(GPT)3: Generating Multitrack Modifiable Multi-Minute MIDI Music from Text using Genetic algorithms, Probabilistic methods and GPT Models in any Progression and Time signature}, 
-            author={Jakub Poćwiardowski and Mateusz Modrzejewski and Marek S. Tatara},
-            year={2024},
-            eprint={2409.12638},
-            archivePrefix={arXiv},
-            primaryClass={cs.SD},
-            url={https://arxiv.org/abs/2409.12638}, 
-      }
+      @INPROCEEDINGS{11152218,
+                    author={Poćwiardowski, Jakub and Modrzejewski, Mateusz and Tatara, Marek S.},
+                    booktitle={2025 IEEE International Conference on Multimedia and Expo Workshops (ICMEW)}, 
+                    title={M6(GPT)3: Generating Multitrack Modifiable Multi-Minute MIDI Music from Text using Genetic Algorithms, Probabilistic Methods and GPT Models in any Progression and Time Signature}, 
+                    year={2025},
+                    volume={},
+                    number={},
+                    pages={1-6},
+                    keywords={Measurement;Conferences;Natural languages;Music;Gaussian distribution;Probabilistic logic;Transformers;Controllability;Music information retrieval;Genetic algorithms;music artificial intelligence;genetic algorithms;language models;music information retrieval},
+                    doi={10.1109/ICMEW68306.2025.11152218}
+                    }
+
